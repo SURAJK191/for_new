@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 25th Birthday TEJ Patel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Initial Birthday Message Timer -->
+    <div id="birthday-timer">
+        <div class="timer-content">
+            <div class="timer-text">Wishing You</div>
+            <div class="countdown">5</div>
+            <div class="birthday-name">Happy Birthday<br><span>TEJ Patel</span></div>
+            <div class="timer-subtext">25th Birthday Celebration</div>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden until timer completes) -->
+    <div id="main-content" style="display: none;">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="age-badge">25th birthday.</div>
+            <h1>Happy Birthday, <span>TEJ Patel</span></h1>
+            <div class="subtitle">A Special Tribute on Your Quarter-Century Milestone</div>
+        </div>
+        
+        <!-- Image Slider Section -->
+        <div class="slider-section">
+            <h2 class="section-title">Memory Slideshow</h2>
+            <p class="section-description">Celebrating 25 amazing years through cherished memories</p>
+            
+            <div class="slider-container">
+                <div class="slider">
+                    <!-- Slides will be added by JavaScript -->
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-indicators">
+                        <!-- Indicators will be added by JavaScript -->
+                    </div>
+                    <button class="slider-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slide-counter">
+                    <span id="current-slide">1</span> / <span id="total-slides">5</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Birthday Photo Grid Section -->
+        <div class="photo-section">
+            <h2 class="section-title">Birthday Memories</h2>
+            <p class="section-description">A collection of 9 special moments celebrating your journey</p>
+            
+            <div class="photo-container">
+                <div class="birthday-grid" id="birthdayGrid">
+                    <!-- 3x3 grid (9 birthday photos) will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Birthday Wishes -->
+        <div class="wishes-grid">
+            <div class="wish-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Success & Achievement</h3>
+                <p>May your professional and personal endeavors be met with great success.</p>
+            </div>
+            
+            <div class="wish-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Health & Vitality</h3>
+                <p>Wishing you robust health and wellness throughout the coming years.</p>
+            </div>
+            
+            <div class="wish-card">
+                <i class="fas fa-smile-beam"></i>
+                <h3>Happiness & Joy</h3>
+                <p>May you find profound contentment and joy in life's precious moments.</p>
+            </div>
+        </div>
+        
+        <!-- Signature -->
+        <div class="signature">
+            With warmest wishes on your special day,<br>
+            <span> BY, Kiran patel</span>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            Created with love for TEJ Patel's 25th birthday
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
