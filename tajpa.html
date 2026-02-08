@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 25th Birthday TEJ Patel</title>
+    <title>Happy 25th Birthday Tej Patel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background Music (autoplay, no mute) -->
+    <audio id="bgAudio" autoplay loop>
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Volume Control Button -->
+    <div class="volume-control" id="volumeControl">
+        <button id="muteBtn">
+            <i class="fas fa-volume-up" id="volumeIcon"></i>
+        </button>
+    </div>
+
     <!-- Initial Birthday Message Timer -->
     <div id="birthday-timer">
         <div class="timer-content">
             <div class="timer-text">Wishing You</div>
             <div class="countdown">5</div>
-            <div class="birthday-name">Happy Birthday<br><span>TEJ Patel</span></div>
+            <div class="birthday-name">Happy Birthday<br><span>Tej Patel</span></div>
             <div class="timer-subtext">25th Birthday Celebration</div>
         </div>
     </div>
@@ -22,8 +35,8 @@
     <div id="main-content" style="display: none;">
         <!-- Header Section -->
         <div class="header">
-            <div class="age-badge">25th birthday.</div>
-            <h1>Happy Birthday, <span>TEJ Patel</span></h1>
+            <div class="age-badge">25th Anniversary</div>
+            <h1>Happy Birthday, <span>Tej Patel</span></h1>
             <div class="subtitle">A Special Tribute on Your Quarter-Century Milestone</div>
         </div>
         
@@ -91,12 +104,12 @@
         <!-- Signature -->
         <div class="signature">
             With warmest wishes on your special day,<br>
-            <span> BY, Kiran patel</span>
+            <span>From Family & Friends</span>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            Created with love for TEJ Patel's 25th birthday
+            Created with love for Tej Patel's 25th birthday
         </div>
     </div>
 

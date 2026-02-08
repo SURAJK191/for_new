@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainContent = document.getElementById('main-content');
     const countdownElement = document.querySelector('.countdown');
     
+    // Audio elements
+    const bgAudio = document.getElementById('bgAudio');
+    const muteBtn = document.getElementById('muteBtn');
+    const volumeIcon = document.getElementById('volumeIcon');
+    
     // Image slider elements
     const slider = document.querySelector('.slider');
     const slideIndicators = document.querySelector('.slider-indicators');
@@ -16,6 +21,79 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Birthday grid element
     const birthdayGrid = document.getElementById('birthdayGrid');
+    
+    // Set initial volume
+    bgAudio.volume = 0.7; // Set to 70% volume
+    let isMuted = false;
+    
+    // Update volume button icon
+    function updateVolumeIcon() {
+        if (isMuted) {
+            volumeIcon.className = 'fas fa-volume-mute';
+            muteBtn.classList.add('muted');
+        } else {
+            volumeIcon.className = 'fas fa-volume-up';
+            muteBtn.classList.remove('muted');
+        }
+    }
+    
+    // Toggle mute/unmute
+    function toggleMute() {
+        isMuted = !isMuted;
+        bgAudio.muted = isMuted;
+        updateVolumeIcon();
+    }
+    
+    // Add click event to mute button
+    muteBtn.addEventListener('click', toggleMute);
+    updateVolumeIcon();
+    
+    // Force audio to play (handles autoplay restrictions)
+    function playAudio() {
+        const playPromise = bgAudio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                // Audio played successfully
+                console.log('Audio is playing');
+            }).catch(error => {
+                // Autoplay was prevented
+                console.log('Autoplay prevented, will play on user interaction');
+                
+                // Show a subtle message
+                const audioMessage = document.createElement('div');
+                audioMessage.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0,0,0,0.8);
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    z-index: 1002;
+                    animation: fadeIn 0.5s ease;
+                `;
+                audioMessage.innerHTML = 'Click anywhere to enable birthday music 🎵';
+                document.body.appendChild(audioMessage);
+                
+                // Enable audio on first click
+                const enableAudio = () => {
+                    bgAudio.play();
+                    document.body.removeChild(audioMessage);
+                    document.removeEventListener('click', enableAudio);
+                    document.removeEventListener('touchstart', enableAudio);
+                };
+                
+                document.addEventListener('click', enableAudio);
+                document.addEventListener('touchstart', enableAudio);
+            });
+        }
+    }
+    
+    // Start playing audio immediately
+    playAudio();
     
     // Birthday timer countdown from 5 to 0
     let countdown = 5;
@@ -57,27 +135,27 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 src: 'new.jpeg',
                 year: '',
-                text: 'happy day'
+                text: 'Happy Day'
             },
             {
                 src: 'tt.jpeg',
                 year: '',
-                text: ''
+                text: 'Special Moments'
             },
             {
                 src: 'we.jpeg',
                 year: '',
-                text: ''
+                text: 'Together Forever'
             },
             {
                 src: 'WhatsApp Image 2026-02-02 at 10.41.07 AM.jpeg',
                 year: '',
-                text: ''
+                text: 'Celebration Time'
             },
             {
                 src: 'te.jpeg',
                 year: '',
-                text: ''
+                text: 'Joyful Memories'
             }
         ];
         
@@ -93,11 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const slide = document.createElement('div');
             slide.className = 'slide';
             
-            // Use your image or placeholder
-            const imgSrc = image.src;
-            
             slide.innerHTML = `
-                <img src="${imgSrc}" alt="Memory ${index + 1}" class="slide-img">
+                <img src="${image.src}" alt="Memory ${index + 1}" class="slide-img">
                 <div class="slide-caption">
                     <div class="slide-year">${image.year}</div>
                     <div class="slide-text">${image.text}</div>
@@ -170,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
         birthdayGrid.innerHTML = '';
         
         // 9 birthday-related images with captions
-        const birthdayPhotos = [
+         const birthdayPhotos = [
             {
                 src: 'WhatsApp Image 2026-02-02 at 10.41.10 AM (1).jpeg',
             },
